@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Harbor Cellars</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:'Arial',sans-serif;
+    background: linear-gradient(180deg,#0d0d0d,#1a1a1a);
+    color:#fff;
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+  }
+
+  /* Header */
+  header {
+    position:fixed; top:0; width:100%;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 40px;
+    background:rgba(0,0,0,0.85);
+    z-index:1000;
+  }
+  header h1 { color:#d4af37; font-family:'Georgia',serif; font-size:28px; }
+  nav a { color:#fff; text-decoration:none; margin-left:20px; font-weight:bold; transition:color 0.3s, transform 0.3s; }
+  nav a:hover { color:#d4af37; transform:scale(1.1); }
+
+  /* Hero with video background */
+  .hero {
+    position: relative;
+    height:50vh;
+    display:flex; justify-content:center; align-items:center;
+    text-align:center;
+    overflow:hidden;
+  }
+  .hero video {
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:translate(-50%,-50%);
+    z-index:-1;
+    filter: brightness(0.4);
+  }
+  .hero h2 {
+    font-size:4vw;
+    color:#d4af37;
+    text-shadow:0 0 15px rgba(212,175,55,0.8);
+    z-index:1;
+  }
+
+  /* Contact Section */
+  .section { padding:80px 40px; max-width:900px; margin:0 auto; text-align:center; }
+  .section h2 { color:#d4af37; font-size:32px; margin-bottom:30px; }
+  .section p { font-size:18px; line-height:1.6; margin-bottom:40px; }
+
+  /* Form */
+  form { display:flex; flex-direction:column; gap:20px; }
+  input, textarea {
+    padding:15px; border-radius:8px; border:2px solid #d4af37; background:rgba(255,255,255,0.05); color:#fff;
+    font-size:16px; resize:none; transition:0.3s;
+  }
+  input:focus, textarea:focus { border-color:#fff; outline:none; background:rgba(255,255,255,0.1); }
+  button {
+    padding:15px; border:none; border-radius:8px; background:#d4af37; color:#0d0d0d; font-weight:bold; cursor:pointer;
+    transition:0.3s; font-size:16px;
+  }
+  button:hover { background:#fff; color:#d4af37; transform:scale(1.05); }
+
+  /* Contact Info */
+  .contact-info { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:50px; }
+  .info-card { background:rgba(255,255,255,0.05); border:2px solid #d4af37; border-radius:10px; padding:20px; width:250px; opacity:0; transform:translateY(50px); transition:0.5s; }
+  .info-card h3 { color:#d4af37; margin-bottom:10px; }
+  .info-card p { font-size:14px; line-height:1.5; }
+
+  /* Footer */
+  footer { text-align:center; padding:40px 20px; background:rgba(0,0,0,0.85); color:#fff; margin-top:40px; }
+
+  /* Responsive */
+  @media(max-width:768px){ .info-card{ width:45%; } }
+  @media(max-width:480px){ .info-card{ width:90%; } nav{ display:flex; flex-wrap:wrap; justify-content:center; margin-top:10px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Harbor Cellars</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cellar.html">Cellar</a>
+    <a href="wines.html">Wines</a>
+    <a href="events.html">Events</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="https://www.pexels.com/download/video/8165702/" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <h2>Contact Us</h2>
+</section>
+
+<section class="section">
+  <h2>Get in Touch</h2>
+  <p>Have questions, inquiries, or want to book a private wine tasting? Fill out the form below or reach out through our contact details.</p>
+  
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <input type="text" placeholder="Subject" required>
+    <textarea rows="6" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div class="contact-info">
+    <div class="info-card">
+      <h3>Address</h3>
+      <p>123 Luxury St, Singapore 098765</p>
+    </div>
+    <div class="info-card">
+      <h3>Email</h3>
+      <p>info@harborcellars.sg</p>
+    </div>
+    <div class="info-card">
+      <h3>Phone</h3>
+      <p>+65 8445 2258</p>
+    </div>
+    <div class="info-card">
+      <h3>Follow Us</h3>
+      <p>Instagram | Facebook | LinkedIn</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Harbor Cellars | Singapore</p>
+  <p>Email: info@harborcellars.sg | Phone: +65 8445 2258</p>
+</footer>
+
+<script>
+  // Fade-in animation for contact info cards
+  const infoCards = document.querySelectorAll('.info-card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.opacity=1;
+        entry.target.style.transform='translateY(0)';
+        entry.target.style.transition='all 0.6s ease-out';
+      }
+    });
+  }, { threshold:0.2 });
+  infoCards.forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>

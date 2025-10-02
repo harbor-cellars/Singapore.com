@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harbor Cellars | Advertisements</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Georgia',serif;
+    background:linear-gradient(180deg,#0d0d0d,#1a1a1a);
+    color:#fff;
+    overflow-x:hidden;
+  }
+
+  /* Header */
+  header{
+    position:fixed;top:0;left:0;width:100%;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:20px 40px;
+    background:rgba(0,0,0,0.8);
+    z-index:1000;
+  }
+  header h1{color:#d4af37;font-size:28px;}
+  nav a{color:#fff;text-decoration:none;margin-left:20px;font-weight:bold;transition:0.3s;}
+  nav a:hover{color:#d4af37;}
+
+  /* Hero Banner */
+  .hero{
+    height:60vh;
+    background:url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+    position:relative;
+  }
+  .hero h2{
+    font-size:4vw;color:#d4af37;text-shadow:0 0 20px rgba(0,0,0,0.8);
+    animation: fadeIn 2s ease-out;
+  }
+
+  /* Ads Grid */
+  .ads-section{padding:100px 40px;max-width:1200px;margin:auto;}
+  .ads-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
+  .ad-card{
+    background:rgba(255,255,255,0.05);
+    border:2px solid #d4af37;
+    border-radius:15px;
+    overflow:hidden;
+    transition:0.4s;
+    transform:translateY(40px);
+    opacity:0;
+  }
+  .ad-card img{width:100%;height:200px;object-fit:cover;}
+  .ad-card h3{color:#d4af37;font-size:20px;margin:15px;}
+  .ad-card p{font-size:15px;margin:0 15px 15px;line-height:1.5;}
+  .ad-card:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(212,175,55,0.5);}
+
+  /* Video Section */
+  .video-section{text-align:center;margin:80px auto;max-width:900px;}
+  .video-section h2{color:#d4af37;margin-bottom:20px;}
+  .video-section iframe{width:100%;height:500px;border:none;border-radius:15px;}
+
+  /* Footer */
+  footer{text-align:center;padding:30px;background:rgba(0,0,0,0.8);margin-top:50px;}
+
+  @keyframes fadeIn{from{opacity:0;transform:translateY(50px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Harbor Cellars</h1>
+</header>
+
+<section class="hero">
+  <h2>Luxury Wine Advertisements</h2>
+</section>
+
+<section class="ads-section">
+  <div class="ads-grid">
+    <div class="ad-card">
+      <img src="https://i.pinimg.com/736x/56/ef/d0/56efd01a9d8a170d1b63d57036b24e2b.jpg?auto=format&fit=crop&w=800&q=80" alt="Ad1">
+      <h3>Exclusive Bordeaux Collection</h3>
+      <p>Discover our rare Bordeaux wines, curated for true connoisseurs. Limited stock available.</p>
+    </div>
+    <div class="ad-card">
+      <img src="https://i.pinimg.com/736x/41/d7/37/41d737f2c7fd0c1e3063110f6d6a1255.jpg?auto=format&fit=crop&w=800&q=80" alt="Ad2">
+      <h3>Champagne Celebration</h3>
+      <p>Celebrate life’s finest moments with premium champagne from our exclusive collection.</p>
+    </div>
+    <div class="ad-card">
+      <img src="https://i.pinimg.com/1200x/86/ce/68/86ce681b31a20c36d3c62d54e8cd3498.jpg?auto=format&fit=crop&w=800&q=80" alt="Ad3">
+      <h3>Luxury Wine Club</h3>
+      <p>Join our members-only wine club and enjoy private tastings, cellar access, and rare vintages.</p>
+    </div>
+    <div class="ad-card">
+      <img src="https://i.pinimg.com/736x/52/58/42/5258428b276021eb4fdd550341480aaa.jpg?auto=format&fit=crop&w=800&q=80" alt="Ad4">
+      <h3>Exclusive Tastings</h3>
+      <p>Book a private tasting session with our sommeliers and experience wine like never before.</p>
+    </div>
+  </div>
+</section>
+
+<section class="video-section">
+  <h2>Promotional Video</h2>
+  <iframe src="https://media.istockphoto.com/id/483184444/video/slow-motion-pouring-red-and-white-wine-on-white-background.mp4?s=mp4-640x640-is&k=20&c=zfeJ34RI1TMNIcol4BvCwDH7tuQcO6EXGb6ffTz7GJM=" allowfullscreen></iframe>
+</section>
+
+<footer>
+  <p>© 2025 Harbor Cellars | Luxury Wine Distribution Singapore</p>
+</footer>
+
+<script>
+  // Fade-in animation for ad cards on scroll
+  const cards = document.querySelectorAll('.ad-card');
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.style.opacity=1;
+        entry.target.style.transform='translateY(0)';
+        entry.target.style.transition='all 0.8s ease-out';
+      }
+    })
+  },{threshold:0.2});
+  cards.forEach(card=>observer.observe(card));
+</script>
+
+</body>
+</html>

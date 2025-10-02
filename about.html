@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Harbor Cellars</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:'Arial',sans-serif;
+    background: linear-gradient(180deg,#0d0d0d,#1a1a1a);
+    color:#fff;
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+  }
+
+  /* Header */
+  header {
+    position:fixed; top:0; width:100%;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 40px;
+    background:rgba(0,0,0,0.85);
+    z-index:1000;
+  }
+  header h1 { color:#d4af37; font-family:'Georgia',serif; font-size:28px; }
+  nav a { color:#fff; text-decoration:none; margin-left:20px; font-weight:bold; transition:color 0.3s, transform 0.3s; }
+  nav a:hover { color:#d4af37; transform:scale(1.1); }
+
+  /* Hero with Video Background */
+  .hero {
+    position: relative;
+    height:50vh;
+    display:flex; justify-content:center; align-items:center;
+    text-align:center;
+    overflow:hidden;
+  }
+  .hero video {
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:translate(-50%,-50%);
+    z-index:-1;
+    filter: brightness(0.4);
+  }
+  .hero h2 {
+    font-size:4vw;
+    color:#d4af37;
+    text-shadow:0 0 15px rgba(212,175,55,0.8);
+    z-index:1;
+  }
+
+  /* Sections */
+  .section { padding:80px 40px; max-width:1000px; margin:0 auto; text-align:center; }
+  .section h2 { color:#d4af37; font-size:32px; margin-bottom:30px; }
+  .section p { font-size:18px; line-height:1.6; margin-bottom:20px; }
+
+  /* Mission & Vision Cards */
+  .mission-vision { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px; }
+  .card {
+    background:rgba(255,255,255,0.05); border:2px solid #d4af37; border-radius:10px;
+    padding:30px 20px; width:300px; transition: transform 0.5s, box-shadow 0.5s; cursor:pointer; opacity:0; transform:translateY(50px);
+  }
+  .card:hover { transform: scale(1.05) rotateY(5deg) rotateX(3deg); box-shadow:0 20px 40px rgba(212,175,55,0.6); }
+
+  /* Team Section */
+  .team { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:50px; }
+  .team-member {
+    width:220px; background:rgba(255,255,255,0.05); border:2px solid #d4af37; border-radius:10px;
+    overflow:hidden; transition: transform 0.5s, box-shadow 0.5s; cursor:pointer; opacity:0; transform:translateY(50px);
+  }
+  .team-member:hover { transform: scale(1.05) rotateY(5deg) rotateX(3deg); box-shadow:0 20px 40px rgba(212,175,55,0.6);}
+  .team-member img { width:100%; height:250px; object-fit:cover; }
+  .team-member h3 { padding:10px; color:#d4af37; text-align:center; }
+  .team-member p { padding:0 10px 15px 10px; text-align:center; font-size:14px; }
+
+  /* Footer */
+  footer { text-align:center; padding:40px 20px; background:rgba(0,0,0,0.85); color:#fff; }
+
+  /* Responsive */
+  @media(max-width:768px){ .card, .team-member{ width:45%; } }
+  @media(max-width:480px){ .card, .team-member{ width:90%; } nav{ display:flex; flex-wrap:wrap; justify-content:center; margin-top:10px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Harbor Cellars</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cellar.html">Cellar</a>
+    <a href="wines.html">Wines</a>
+    <a href="events.html">Events</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="https://www.pexels.com/download/video/3245638/" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <h2>About Us</h2>
+</section>
+
+<!-- Our Story -->
+<section class="section">
+  <h2>Our Story</h2>
+  <p>Harbor Cellars was founded with a vision to bring the finest wines from around the world to Singapore. Our journey started with a passion for exquisite wine and a dedication to creating luxurious experiences for our clients.</p>
+  <p>Over the years, we have curated a collection of rare and premium wines, offering personalized services and hosting exclusive wine events for enthusiasts and collectors.</p>
+</section>
+
+<!-- Mission & Vision -->
+<section class="section">
+  <h2>Mission & Vision</h2>
+  <div class="mission-vision">
+    <div class="card">
+      <h3>Our Mission</h3>
+      <p>To provide a curated selection of the world's finest wines, paired with exclusive tasting experiences, ensuring luxury, quality, and sophistication in every bottle.</p>
+    </div>
+    <div class="card">
+      <h3>Our Vision</h3>
+      <p>To become Singapore's premier wine distributor, recognized for excellence, exclusive offerings, and elevating wine culture in the region.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="section">
+  <h2>Meet Our Team</h2>
+  <div class="team">
+    <div class="team-member">
+      <img src="assets/images/owner.png" alt="CEO">
+      <h3>Christina Lawson</h3>
+      <p>Founder & CEO – Visionary in luxury wine curation and events.</p>
+    </div>
+    <div class="team-member">
+      <img src="assets/images/head.png" alt="Sommelier">
+      <h3>Maria Lim</h3>
+      <p>Head Sommelier – Expert in wine tasting and pairings.</p>
+    </div>
+    <div class="team-member">
+      <img src="assets/images/manager.png" alt="Events Manager">
+      <h3>David Wayne</h3>
+      <p>Events Manager – Curates exclusive wine experiences and masterclasses.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Harbor Cellars | Singapore</p>
+  <p>Email: info@harborcellars.sg | Phone: +65 8445 2258</p>
+</footer>
+
+<script>
+  // Fade-in animation for cards and team members
+  const fadeElements = document.querySelectorAll('.card, .team-member');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.opacity=1;
+        entry.target.style.transform='translateY(0)';
+        entry.target.style.transition='all 0.6s ease-out';
+      }
+    });
+  }, { threshold:0.2 });
+  fadeElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

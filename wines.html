@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wine Catalog - Harbor Cellars</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:'Arial',sans-serif;
+    background: linear-gradient(180deg,#0d0d0d,#1a1a1a);
+    color:#fff;
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+  }
+
+  /* Header */
+  header {
+    position:fixed; top:0; width:100%;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 40px;
+    background:rgba(0,0,0,0.85);
+    z-index:1000;
+  }
+  header h1 { color:#d4af37; font-family:'Georgia',serif; font-size:28px; }
+  nav a { color:#fff; text-decoration:none; margin-left:20px; font-weight:bold; transition:color 0.3s, transform 0.3s; }
+  nav a:hover { color:#d4af37; transform:scale(1.1); }
+
+  /* Hero with background video */
+  .hero {
+    position: relative;
+    height:50vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+    text-align:center;
+    overflow:hidden;
+  }
+  .hero video {
+    position:absolute;
+    top:50%; left:50%;
+    width:100%; height:100%;
+    object-fit:cover;
+    transform:translate(-50%, -50%);
+    z-index:0;
+  }
+  .hero h2 {
+    position:relative; z-index:1;
+    font-size:4vw; color:#d4af37;
+    text-shadow:0 0 15px rgba(212,175,55,0.8);
+  }
+
+  /* Filter Buttons */
+  .filters { display:flex; justify-content:center; gap:20px; padding:30px 0; flex-wrap:wrap; }
+  .filters button {
+    background:rgba(255,255,255,0.05); border:2px solid #d4af37; color:#d4af37;
+    padding:10px 20px; border-radius:5px; cursor:pointer; font-weight:bold; transition:all 0.3s;
+  }
+  .filters button:hover, .filters button.active { background:#d4af37; color:#000; }
+
+  /* Wine Grid */
+  .wine-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; padding:20px 40px; }
+  .wine-card {
+    width:220px; background:rgba(255,255,255,0.05); border:2px solid #d4af37; border-radius:10px;
+    overflow:hidden; transition: transform 0.5s, box-shadow 0.5s, opacity 0.5s;
+    cursor:pointer; transform-style: preserve-3d; opacity:0; transform:translateY(50px);
+  }
+  .wine-card:hover { transform: scale(1.05) rotateY(10deg) rotateX(5deg); box-shadow:0 20px 40px rgba(212,175,55,0.6); }
+  .wine-card img { width:100%; height:60%; object-fit:cover; }
+  .wine-card h3 { text-align:center; padding:10px; color:#d4af37; }
+  .wine-card p { text-align:center; font-size:14px; padding:0 10px; }
+
+  /* About Section */
+  .about { padding:50px 40px; text-align:center; max-width:900px; margin:0 auto; }
+  .about h2 { color:#d4af37; margin-bottom:20px; }
+  .about p { font-size:18px; line-height:1.6; }
+
+  /* Footer */
+  footer { text-align:center; padding:40px 20px; background:rgba(0,0,0,0.85); color:#fff; }
+
+  /* Responsive */
+  @media(max-width:768px){ .wine-card{ width:45%; } .hero h2{ font-size:6vw; } }
+  @media(max-width:480px){ nav{ display:flex; flex-wrap:wrap; justify-content:center; margin-top:10px; } .wine-card{ width:90%; } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Harbor Cellars</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cellar.html">Cellar</a>
+    <a href="wines.html">Wines</a>
+    <a href="events.html">Events</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="https://www.pexels.com/download/video/4254061/" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <h2>Wine Catalog</h2>
+</section>
+
+<div class="filters">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="red">Red</button>
+  <button class="filter-btn" data-filter="white">White</button>
+  <button class="filter-btn" data-filter="sparkling">Sparkling</button>
+</div>
+
+<section class="wine-grid">
+  <!-- Example cards, repeat as needed -->
+  <div class="wine-card" data-type="red"><img src="https://i.pinimg.com/1200x/47/e3/e5/47e3e5470be95990065f164f42359a82.jpg" alt="Chateau Margaux"><h3>Chateau Margaux</h3><p>Bordeaux red wine.</p></div>
+  <div class="wine-card" data-type="white"><img src="https://i.pinimg.com/736x/fe/ae/95/feae9508af09b0e211b77642e2562332.jpg" alt="Vega Sicilia"><h3>Vega Sicilia</h3><p>Elegant Spanish white.</p></div>
+  <div class="wine-card" data-type="sparkling"><img src="https://i.pinimg.com/736x/83/62/94/836294a90ddeef61ef18310f873787a3.jpg" alt="Dom Perignon"><h3>Dom Perignon</h3><p>Champagne luxury.</p></div>
+</section>
+
+<section class="about">
+  <h2>About Our Wines</h2>
+  <p>Our wine catalog offers a curated selection of the finest wines from around the world. Filter by type to explore reds, whites, or sparkling wines, each selected for luxury and quality. Hover over a card to see interactive details and experience elegance in every bottle.</p>
+</section>
+
+<footer>
+  <p>Harbor Cellars | Singapore</p>
+  <p>Email: info@harborcellars.sg | Phone: +65 8445 2258</p>
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.wine-card');
+
+  // Filter functionality
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        if(filter==='all' || card.dataset.type===filter){
+          card.style.display='block';
+          setTimeout(()=>{ card.style.opacity=1; card.style.transform='translateY(0)';},50);
+        } else {
+          card.style.opacity=0;
+          card.style.transform='translateY(50px)';
+          setTimeout(()=>{ card.style.display='none'; },300);
+        }
+      });
+    });
+  });
+
+  // Initial fade-in animation
+  window.addEventListener('load', ()=>{
+    cards.forEach((card,i)=>{
+      setTimeout(()=>{
+        card.style.opacity=1;
+        card.style.transform='translateY(0)';
+      }, i*100);
+    });
+  });
+</script>
+
+</body>
+</html>
