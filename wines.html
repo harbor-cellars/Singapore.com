@@ -79,6 +79,31 @@
   @media(max-width:768px){ .wine-card{ width:45%; } .hero h2{ font-size:6vw; } }
   @media(max-width:480px){ nav{ display:flex; flex-wrap:wrap; justify-content:center; margin-top:10px; } .wine-card{ width:90%; } }
 </style>
+ <script>
+const apiUrl = "https://68e40b318e116898997ad5fc.mockapi.io/v1/wines"; // သင့် endpoint
+
+// Featured wines container ကို select
+const featuredContainer = document.querySelector('.featured');
+
+// API က data fetch
+fetch(apiUrl)
+  .then(res => res.json())
+  .then(wines => {
+    featuredContainer.innerHTML = ''; // အရင်မူလ content ဖျက်
+    wines.forEach(wine => {
+      const card = document.createElement('div');
+      card.className = 'wine-card';
+      card.innerHTML = `
+        <img src="${wine.image}" alt="${wine.name}">
+        <h3>${wine.name}</h3>
+        <p>${wine.description}</p>
+      `;
+      featuredContainer.appendChild(card);
+    });
+  })
+  .catch(err => console.error("Error fetching wines:", err));
+</script>
+
 </head>
 <body>
 
@@ -235,6 +260,7 @@
 
 </body>
 </html>
+
 
 
 
